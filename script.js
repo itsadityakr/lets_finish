@@ -1,52 +1,39 @@
 // Fundamentals of JS
-// arrays and Objects'
+// Objects
 // Functions Return
 // async
 
-var arr = [1, 2, 3, {}, [5, 6, 7], true]; //anything can be inserted in array
+// Objects => key: value Pairs
 
-// foreach
-arr1 = [1, 2, 3, 4, 5];
+const mailOfAditya = "email@gmail.com";
+const obj = {
+    name: "aditya",
+    age: 25,
+    email: mailOfAditya,
+};
 
-arr1.forEach(function (val) {
-    console.log(val + " Hello");
-});
+console.log(obj[`name`]); // aditya
+console.log(obj[(`name`, `email`)]); // will print only the last index // email@gmail.com
 
-// 1 Hello
-// 2 Hello
-// 3 Hello
-// 4 Hello
-// 5 Hello
+// obj.age = 10;
+// console.log(obj.age); // 10 we can update the value
 
-// map
-arr2 = [1, 2, 3, 4, 5];
-var newArr2 = arr2.map(function (val) {
-    return val * 3;
-});
+// if you strict and dont want that values should update use "freeze"
+Object.freeze(obj);
+obj.age = 10;
+console.log(obj.age);
 
-console.log(newArr2);
-// (5) [3, 6, 9, 12, 15]
+// in js we can find the length of array like arr.length but we can also find the length of function like
 
-// filter
-// when we need to create a new array which either will be smaller or equal in length of original array
-// will not change the original arr but will give new filtered array
+function abcd1() {
+    console.log("Empty Function");
+}
 
-arr3 = [1, 2, 3, 4, 5];
-var num3 = arr3.filter(function (val) {
-    return val <= 2;
-});
-console.log(num3);
-// (2) [1, 2]
+console.log(abcd1.length); //0 this is the number of parameter
 
-// find
-arr4 = [1, 3, 4, 2, 5];
-var ans = arr4.find((val) => {
-    if (val === 2) return val;
-});
-// .find() expects a boolean return value.
-console.log(ans); // 2
+function abcd2(a, b, c, d) {
+    console.log("Empty Function");
+}
 
-// indexOf
-//returns the first index of 2
-arr5 = [1, 4, 2, 5, 1, 2];
-console.log(arr5.indexOf(2)); // 2
+console.log(abcd2.length); //4 like we have a,b,c,d because typeof function() is 'function' but abcd is an object
+console.dir(abcd2); // (ƒ) abcd2(a, b, c, d)
