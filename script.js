@@ -1,30 +1,64 @@
-// async
-// <script type="module" src="script.js"></script> because in common js we get error
-// Uncaught SyntaxError: await is only valid in async functions and the top level bodies of modules
+// Node.js Basics
+// Introduction to Node.js
+// Installing Node.js and npm
+// Working with Modules
+// File System Operations
+// understanding HTTP Module
 
-// to use await u always need to have async function but not true for always below code is not for learning just an analysis
-// var blob = await fetch("https://randomuser.me/api/");
-// var response = await blob.json();
 
-// console.log(response);
-//{results: Array(1), info: {…}}
 
-// Syncronous Function => line by line code executions like line 1->2->3->4.... means sequenctially is known as syncronous functions
-// Asyncronous Function => are those which are send to side stack and execute the code that is of sync nature, whenever when ever all sync code is executed and main stack gets empty then check if async code is completed or not. if completed then bring it to main stack and execute
+// ---------------------------------------------------------------------------------------------------------------------
 
-async function abcd() {
-    // await fetch(`https://randomuser.me/api/`);
-    //fetch is by default asyncronous in nature means it never blocks the code
+// Node.js Basics, Introduction to Node.js
 
-    var blob = await fetch(`https://randomuser.me/api/`); //the fetch geenrate a response in a form of unreadable stream so we use blob.json to convert it into readable format
-    // var ans = blob.json();
-    // console.log(ans);
-    // Promise {<pending>} because fetching takes some sort of time and before that this line executed so we need to add await to it.
-    var ans = await blob.json();
-    console.log(ans);
-    // {results: Array(1), info: {…}}
-    console.log(ans.results[0].name);
-    // gives name {title: 'Mrs', first: 'Ece', last: 'Adan'}
-}
+//  Node Js is not a programming langauge,technology, framework,library
+// Node Js is a js runtime environment that allows you to run JavaScript code outside of a web browser.
 
-abcd(); // calling function
+// Story:
+//  JS Cant Create Backend becuase it does not have functiality to interact with file system, database, server etc
+//  Ryan Dahl created Node Js in 2009 to overcome this limitation of JS
+//  Node Js is built on Chrome's V8 JavaScript engine which makes it fast and efficient
+// Chromes V8 engine is an open-source JavaScript engine developed by Google for the Chrome browser. It compiles JavaScript code into machine code, allowing for faster execution and improved performance.
+// Chrome V8 engine is written in C++ and is designed to be lightweight and efficient, making it ideal for use in web browsers and other applications that require high-performance JavaScript execution.
+
+// V8 Engine is wrapped inside Node Js to execute JS code on server side
+// We will write js code and Node Js will use V8 engine to execute that code on server side means Code written in JS will be converted to machine code by V8 engine and then executed on server side
+// We will write js code that will reveive wrapper layer and that wrapper layer will be executed by V8 engine on server side with the help of Cpp module of V8 engine and will create backend functionality aka Server Side functionality
+
+// NodeJs is a js runtime environment that allows you to run JavaScript code outside of a web browser. It provides a set of built-in modules and APIs that enable developers to build server-side applications using JavaScript.
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Installing Node.js and npm
+
+// https://nodejs.org/en
+// Download the LTS version for better stability
+
+// npm - Node Package Manager
+// It comes bundled with Node.js installation
+// It is used to manage packages and dependencies for Node.js projects
+
+// To check if Node.js and npm are installed correctly, open your terminal or command prompt and run the following commands:
+// node -v
+// npm -v
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+// Working with node and npm
+// Terminal Commands
+// node init -y  // creates a package.json file with default values
+// note init // creates a package.json file with user-defined values
+// package.json file contains metadata about the project and its dependencies
+
+// To install a package using npm, use the following command:
+// npm install <package-name>
+// Example: npm install express
+
+// To uninstall a package using npm, use the following command:
+// npm uninstall <package-name>
+// Example: npm uninstall express
+
+// CJS - CommonJS => Common JavaScript is a type of module system used in Node.js
+// ESM - ECMAScript Modules => It is a standardized module system introduced in ES6 (ECMAScript 2015) for JavaScript
+// By default, Node.js uses CJS module system
+// To use ESM module system, you need to add "type": "module" in package.json file
