@@ -1,64 +1,68 @@
-// Node.js Basics
-// Introduction to Node.js
-// Installing Node.js and npm
-// Working with Modules
-// File System Operations
-// understanding HTTP Module
+// File System Module in Node.js
 
+const fs = require(`fs`); // CJS Module System
+// import fs from 'fs'; // ESM Module System
 
+// write
+// appendFile
+// copyFile
+// rename
+// readFile
+// unlink
 
-// ---------------------------------------------------------------------------------------------------------------------
+fs.writeFile(`example.txt`, `Hello, World!`, (err) => {
+    if (err) throw err;
+    console.log(`File created successfully!`);
+});
+// callback function is called when the file is created successfully or an error occurs
+// fs.writeFile(file, data[, options], callback)
 
-// Node.js Basics, Introduction to Node.js
+// To run type
+// Terminal Command
+// node script.js
 
-//  Node Js is not a programming langauge,technology, framework,library
-// Node Js is a js runtime environment that allows you to run JavaScript code outside of a web browser.
+fs.appendFile(`example.txt`, `I am Good, World!`, (err) => {
+    if (err) throw err;
+    console.log(`File Updated successfully!`);
+});
+// Appends the specified content to the end of the file
 
-// Story:
-//  JS Cant Create Backend becuase it does not have functiality to interact with file system, database, server etc
-//  Ryan Dahl created Node Js in 2009 to overcome this limitation of JS
-//  Node Js is built on Chrome's V8 JavaScript engine which makes it fast and efficient
-// Chromes V8 engine is an open-source JavaScript engine developed by Google for the Chrome browser. It compiles JavaScript code into machine code, allowing for faster execution and improved performance.
-// Chrome V8 engine is written in C++ and is designed to be lightweight and efficient, making it ideal for use in web browsers and other applications that require high-performance JavaScript execution.
+fs.rename(`example.txt`, `newExample.txt`, (err) => {
+    if (err) throw err;
+    console.log(`File Renamed successfully!`);
+});
+// renames the specified file to a new name
 
-// V8 Engine is wrapped inside Node Js to execute JS code on server side
-// We will write js code and Node Js will use V8 engine to execute that code on server side means Code written in JS will be converted to machine code by V8 engine and then executed on server side
-// We will write js code that will reveive wrapper layer and that wrapper layer will be executed by V8 engine on server side with the help of Cpp module of V8 engine and will create backend functionality aka Server Side functionality
+fs.copyFile(`newExample.txt`, `copyOfExample.txt`, (err) => {
+    if (err) console.error(err.message);
+    console.log(`File Copied successfully!`);
+});
+// copies the specified file to a new file
+// if you want onnly the error message then use err.message
 
-// NodeJs is a js runtime environment that allows you to run JavaScript code outside of a web browser. It provides a set of built-in modules and APIs that enable developers to build server-side applications using JavaScript.
+fs.unlink(`copyOfExample.txt`, (err) => {
+    if (err) throw err;
+    console.log(`File Deleted successfully!`);
+});
 
-// ---------------------------------------------------------------------------------------------------------------------
+fs.rm(`newExample.txt`, (err) => {
+    if (err) throw err;
+    console.log(`File Removed successfully!`);
+});
+// deletes the specified File
 
-// Installing Node.js and npm
+fs.readFile(`example.txt`, `utf-8`, (err, data) => {
+    if (err) throw err;
+    console.log(`File Read successfully!`);
+    console.log(data);
+});
+// reads the content of the specified file
+// utf-8 is used to specify the encoding of the File
 
-// https://nodejs.org/en
-// Download the LTS version for better stability
+fs.rm(`./copy/`, { recursive: true }, (err) => {
+    if (err) throw err;
+    console.log(`Directory Removed successfully!`);
+});
 
-// npm - Node Package Manager
-// It comes bundled with Node.js installation
-// It is used to manage packages and dependencies for Node.js projects
-
-// To check if Node.js and npm are installed correctly, open your terminal or command prompt and run the following commands:
-// node -v
-// npm -v
-
-// ---------------------------------------------------------------------------------------------------------------------
-
-// Working with node and npm
-// Terminal Commands
-// node init -y  // creates a package.json file with default values
-// note init // creates a package.json file with user-defined values
-// package.json file contains metadata about the project and its dependencies
-
-// To install a package using npm, use the following command:
-// npm install <package-name>
-// Example: npm install express
-
-// To uninstall a package using npm, use the following command:
-// npm uninstall <package-name>
-// Example: npm uninstall express
-
-// CJS - CommonJS => Common JavaScript is a type of module system used in Node.js
-// ESM - ECMAScript Modules => It is a standardized module system introduced in ES6 (ECMAScript 2015) for JavaScript
-// By default, Node.js uses CJS module system
-// To use ESM module system, you need to add "type": "module" in package.json file
+// Removes the specified Directory
+// recursive: true is used to remove non-empty directories else it can only erase empty directories
