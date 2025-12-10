@@ -1,73 +1,53 @@
-// on internet some rules are made by people who made internet and some rules are made by governments of different countries. these rules are called internet regulations. they are made to ensure safety, privacy, and proper use of the internet. different countries have different regulations based on their cultural, social, and political values. for example, some countries may have strict regulations on content that can be accessed online, while others may focus more on data protection and user privacy. it is important for internet users to be aware of these regulations to avoid legal issues and ensure a safe online experience.
-// Mac Address is a unique identifier assigned to network interfaces for communications on the physical network segment. It is used for identifying devices on a local network and is essential for network management and security.
-// MAC Address stands for Media Access Control Address. It is a unique identifier assigned to network interfaces for communications on the physical network segment. It is used for identifying devices on a local network and is essential for network management and security.
+// NPM Understanding
+// installing and uninstalling anything basics & advanced
+// understahnding node_modules folder
+// dependency vs devDependency
+// scripts - understanding scripts PATH and custom scripts
 
-// IP Address stands for Internet Protocol Address. It is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: identifying the host or network interface and providing the location of the host in the network. There are two types of IP addresses: IPv4 and IPv6.
+// NPM = Node Package Manager
+// contains a huge repository of packages/modules that can be used to extend the functionality of Node.js applications
 
-// DNS stands for Domain Name System. It is a hierarchical and decentralized naming system for computers, services, or other resources connected to the internet or a private network. The primary function of DNS is to translate human-readable domain names (like www.example.com) into IP addresses.
+// things that nodejs core contains is known as modules and the others which we install using npm are known as packages
 
-// VPN stands for Virtual Private Network. It is a service that creates a secure and encrypted connection over a less secure network, such as the internet. VPNs are commonly used to protect online privacy, secure data transmission, and access restricted content by masking the user's IP address and routing their internet traffic through a remote server.
+// Installing a package
+// npm install <package-name>
+// npm i <package-name>
 
-// HTTP stands for Hypertext Transfer Protocol. It is the foundation of data communication on the World Wide Web. HTTP defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands. When you enter a URL in your web browser, an HTTP command is sent to the web server to fetch and display the requested web page.
+// Uninstalling a package
+// npm uninstall <package-name>
+// npm remove <package-name> // cannot write npm u <package-name>
 
-// HTTPS stands for Hypertext Transfer Protocol Secure. It is an extension of HTTP that uses encryption to secure data transmitted between a user's web browser and a web server. HTTPS ensures that the data exchanged remains private and protected from eavesdropping or tampering, making it essential for secure online transactions and communications.
-// URL stands for Uniform Resource Locator. It is the address used to access resources on the internet, such as web pages, images, and files. A URL typically consists of several components, including the protocol (e.g., http or https), the domain name (e.g., www.example.com), and the path to the specific resource (e.g., /page1). URLs are essential for navigating the web and locating online content.
+// Installing a specific version of a package
+// npm install <package-name>@<version>
+// if one package depends on another package then while installing the main package the dependent package will also be installed automatically and also listed in dependencies all will be stored in node_modules folder
+// node_modules folder contains all the installed packages and their dependencies
 
-// Http vs Https
-// The main difference between HTTP and HTTPS is the security level. HTTP is not secure, meaning that data transmitted between the user's browser and the web server can be intercepted and read by third parties. In contrast, HTTPS uses encryption (typically via SSL/TLS) to secure the data, making it much more difficult for unauthorized parties to access or tamper with the information being exchanged. As a result, HTTPS is recommended for websites that handle sensitive information, such as online banking or e-commerce sites.
-// IP v4 vs IP v6
-// The main difference between IPv4 and IPv6 is the address format and capacity. IPv4 uses a 32-bit address format, allowing for approximately 4.3 billion unique addresses. However, due to the rapid growth of internet-connected devices, the available IPv4 addresses have been largely exhausted. In contrast, IPv6 uses a 128-bit address format, which allows for a vastly larger number of unique addresses (approximately 340 undecillion). This expansion addresses the limitations of IPv4 and supports the continued growth of the internet. Additionally, IPv6 includes improvements in areas such as routing efficiency and security features compared to IPv4.
+// Dependency vs DevDependency
+// Dependency: These are the packages that are required for the application to run in production. They are essential for the core functionality of the application.
+// DevDependency: These are the packages that are only needed during the development phase. They are not required for the application to run in production, such as testing frameworks, build tools, etc.
+// npm i nodemon --save-dev
 
-// DNS vs IP Address
-// The main difference between DNS and IP addresses is their function in the internet infrastructure. An IP address is a numerical label assigned to each device connected to a network, serving as its unique identifier for communication. In contrast, DNS is a system that translates human-readable domain names (like www.example.com) into IP addresses. This translation allows users to access websites using easy-to-remember names instead of having to remember complex numerical IP addresses. Essentially, DNS acts as the "phonebook" of the internet, while IP addresses are the actual "phone numbers" used for routing data between devices.
+// "scripts": {
+//     "test": "echo \"Error: no test specified\" && exit 1"
+// },
+//   when  we run like
+// npm test
+// npm start
+// npm run dev
+// npm run concurrent
+// npm run <custom-script-name>
 
-// VPN vs Proxy
-// The main difference between a VPN and a proxy is the level of security and the scope of their functionality. A VPN creates a secure and encrypted connection between the user's device and the internet, protecting all online activities and data transmissions from eavesdropping and interception. It also masks the user's IP address by routing traffic through a remote server. In contrast, a proxy server acts as an intermediary for specific applications or web browsers, forwarding requests on behalf of the user. While proxies can hide the user's IP address for certain activities, they do not provide the same level of encryption and overall security as a VPN. Additionally, VPNs typically cover all internet traffic from the device, whereas proxies are often limited to specific applications.
+// so sometimes we need to simply use npm start or npm test without writing run in between but for custom scripts we need to write run in between because npm start and npm test are predefined scripts in npm
 
-// MAC Address vs IP Address
-// The main difference between a MAC address and an IP address lies in their purpose and scope of use. A MAC (Media Access Control) address is a unique identifier assigned to a network interface card (NIC) for communications on the physical network segment. It operates at the data link layer (Layer 2) of the OSI model and is used for local network communication between devices on the same network. In contrast, an IP (Internet Protocol) address is a numerical label assigned to each device connected to a network that uses the Internet Protocol for communication. It operates at the network layer (Layer 3) of the OSI model and is used for identifying devices across different networks, enabling global internet communication. While MAC addresses are fixed and tied to hardware, IP addresses can be dynamic and change based on network configurations.
+// PATH in scripts
+// when we run a script using npm, npm automatically adds the node_modules/.bin directory to the PATH environment variable for that script. This allows us to run locally installed packages without needing to specify their full path.
 
-// Proxy vs DNS
-// The main difference between a proxy and DNS lies in their functions within internet communication. A proxy server acts as an intermediary between a user's device and the internet, forwarding requests and responses on behalf of the user. It can provide anonymity, content filtering, and access control for specific applications or web browsers. In contrast, DNS (Domain Name System) is a hierarchical system that translates human-readable domain names (like www.example.com) into IP addresses. DNS enables users to access websites using easy-to-remember names instead of numerical IP addresses. While a proxy focuses on managing and routing internet traffic, DNS is primarily concerned with resolving domain names to their corresponding IP addresses.
+// so every time we run npm start or npm test or any custom script npm will look for the packages in node_modules/.bin folder first before looking into global packages means willl create a table of contents of node_modules/.bin folder and will check if the package is present there or not if present will run that otherwise will look for global packages
 
-// HTTP vs VPN
-// The main difference between HTTP and VPN lies in their functions and purposes in internet communication. HTTP (Hypertext Transfer Protocol) is a protocol used for transmitting data over the web, allowing web browsers and servers to communicate and exchange information. It is primarily concerned with the format and transmission of web content. In contrast, a VPN (Virtual Private Network) is a service that creates a secure and encrypted connection over a less secure network, such as the internet. A VPN is focused on protecting user privacy, securing data transmission, and masking the user's IP address. While HTTP facilitates web communication, a VPN enhances security and privacy for all internet activities.
+// Example:
+// "scripts": {
+//     "start": "node script.js",
+//     "dev": "nodemon script.js"
+// },
 
-// HTTPS vs VPN
-// The main difference between HTTPS and VPN lies in their scope and purpose in ensuring online security. HTTPS (Hypertext Transfer Protocol Secure) is a protocol that secures data transmitted between a user's web browser and a web server using encryption. It is primarily focused on protecting the integrity and confidentiality of data exchanged during web browsing, such as login credentials and payment information. In contrast, a VPN (Virtual Private Network) provides a broader level of security by creating a secure and encrypted connection for all internet traffic from a user's device. A VPN not only encrypts data but also masks the user's IP address and can provide access to restricted content. While HTTPS secures specific web interactions, a VPN offers comprehensive protection for all online activities.
-
-// URL vs DNS
-// The main difference between a URL and DNS lies in their roles in accessing online resources. A URL (Uniform Resource Locator) is the specific address used to locate and access resources on the internet, such as web pages, images, or files. It includes components like the protocol (http or https), domain name, and path to the resource. In contrast, DNS (Domain Name System) is a system that translates human-readable domain names (like www.example.com) into IP addresses. DNS acts as a directory that helps users find the correct IP address associated with a domain name, enabling them to access the desired resources using URLs. Essentially, a URL specifies the location of a resource, while DNS facilitates the resolution of domain names to their corresponding IP addresses.
-
-// URL vs IP address
-// The main difference between a URL and an IP address lies in their format and purpose in accessing online resources. A URL (Uniform Resource Locator) is a human-readable address that specifies the location of a resource on the internet, such as a web page or file. It typically includes the protocol (http or https), domain name, and path to the specific resource (e.g., https://www.example.com/page1). In contrast, an IP (Internet Protocol) address is a numerical label assigned to each device connected to a network, serving as its unique identifier for communication. An IP address is used by computers to locate and communicate with each other over the internet. While URLs are designed for ease of use by humans, IP addresses are used by computers to route data to the correct destination.
-
-// MAC Address vs VPN
-// The main difference between a MAC address and a VPN lies in their functions and purposes in network communication. A MAC (Media Access Control) address is a unique identifier assigned to a network interface card (NIC) for communications on the physical network segment. It operates at the data link layer (Layer 2) of the OSI model and is used for local network communication between devices on the same network. In contrast, a VPN (Virtual Private Network) is a service that creates a secure and encrypted connection over a less secure network, such as the internet. A VPN is focused on protecting user privacy, securing data transmission, and masking the user's IP address. While a MAC address is a hardware identifier used for local networking, a VPN is a software solution designed to enhance security and privacy for internet users.
-
-// MAC Address vs HTTPS
-// The main difference between a MAC address and HTTPS lies in their functions and purposes in network communication. A MAC (Media Access Control) address is a unique identifier assigned to a network interface card (NIC) for communications on the physical network segment. It operates at the data link layer (Layer 2) of the OSI model and is used for local network communication between devices on the same network. In contrast, HTTPS (Hypertext Transfer Protocol Secure) is a protocol that secures data transmitted between a user's web browser and a web server using encryption. HTTPS is primarily focused on protecting the integrity and confidentiality of data exchanged during web browsing. While a MAC address is a hardware identifier used for local networking, HTTPS is a protocol designed to ensure secure communication over the internet.
-
-// MAC Address vs DNS
-// The main difference between a MAC address and DNS lies in their functions and purposes in network communication. A MAC (Media Access Control) address is a unique identifier assigned to a network interface card (NIC) for communications on the physical network segment. It operates at the data link layer (Layer 2) of the OSI model and is used for local network communication between devices on the same network. In contrast, DNS (Domain Name System) is a hierarchical system that translates human-readable domain names (like www.example.com) into IP addresses. DNS enables users to access websites using easy-to-remember names instead of numerical IP addresses. While a MAC address is a hardware identifier used for local networking, DNS is a system designed to facilitate the resolution of domain names to their corresponding IP addresses for internet access.
-
-// MAC Address vs URL
-// The main difference between a MAC address and a URL lies in their functions and purposes in network communication. A MAC (Media Access Control) address is a unique identifier assigned to a network interface card (NIC) for communications on the physical network segment. It operates at the data link layer (Layer 2) of the OSI model and is used for local network communication between devices on the same network. In contrast, a URL (Uniform Resource Locator) is a human-readable address that specifies the location of a resource on the internet, such as a web page or file. A URL typically includes the protocol (http or https), domain name, and path to the specific resource. While a MAC address is a hardware identifier used for local networking, a URL is used to locate and access resources on the internet.
-
-// Due to these rules the pre installed softwares are there in devices which cannot be uninstalled. these softwares are made to monitor the activities of users on internet and also to restrict some activities on internet. these softwares are called government mandated softwares. they are installed to ensure that users follow the internet regulations set by the government. these softwares may include features like content filtering, activity monitoring, and data logging. while they help in maintaining internet safety and security, they may also raise concerns about user privacy and freedom of expression online.
-
-// HTTP is a protocol that is used for transmitting data over the web. it defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands. when you enter a URL in your web browser, an HTTP command is sent to the web server to fetch and display the requested web page. HTTP is the foundation of data communication on the World Wide Web.
-
-// Without following HTTP we cannot access any website on internet.
-
-const http = require("http");
-const server = http.createServer(function (req, res) {
-    res.end("Hello World!");
-});
-
-server.listen(8080);
-
-// run the server node script.js
-// open the browser and type
-// localhost:8080
-// on browser you will see Hello World!
+console.log("NPM is awesome!");
