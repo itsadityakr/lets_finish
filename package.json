@@ -1,29 +1,26 @@
 {
-    "name": "lets_finish",
-    "version": "1.0.0",
-    "description": "",
-    "main": "script.js",
-    "scripts": {
-        "start": "nodemon script.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/itsadityakr/lets_finish.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "type": "commonjs",
-    "bugs": {
-        "url": "https://github.com/itsadityakr/lets_finish/issues"
-    },
-    "homepage": "https://github.com/itsadityakr/lets_finish#readme",
-    "devDependencies": {
-        "nodemon": "^3.1.11"
-    },
-    "dependencies": {
-        "cookie-parser": "^1.4.7",
-        "express": "^5.2.1"
-    }
+  "name": "lets_finish",
+  "version": "1.0.0",
+  "description": "A Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsadityakr/lets_finish.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/itsadityakr/lets_finish/issues"
+  },
+  "homepage": "https://github.com/itsadityakr/lets_finish#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1"
+  }
 }
