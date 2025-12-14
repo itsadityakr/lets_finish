@@ -1,25 +1,27 @@
 const express = require("express");
-// import express module from node_modules
-
 const app = express();
-// apll express powers comes in app variable
-// express is  a function
 
-// app.get(route, requestHandler);
-// route => "/"
-// requestHandler => function(req,res){}
+// Middleware 1: Log all requests
+app.use((req, res, next) => {
+    console.log("Request received at:", new Date());
+    next();
+});
 
+// Middleware 2: Check time of day
+app.use((req, res, next) => {
+    const hour = new Date().getHours();
+    if (hour < 9 || hour > 17) {
+        res.send("Sorry, we are closed!");
+    } else {
+        next();
+    }
+});
 
+// Route: Homepage
 app.get("/", (req, res) => {
-    res.send("Hello World");
+    res.send("Welcome to our website!");
 });
 
 app.listen(3000, () => {
-    console.log("Server is running on http://localhost:3000");
+    console.log("Server running on port 3000");
 });
-
-// > node script.js
-// > Server is running on http://localhost:3000
-
-// at : http://localhost:3000/
-// Hello World
